@@ -47,6 +47,7 @@ textarea {
   	border-radius: 4px;
   	background-color: white;
   	font-size: 16px;
+  	overflow-x: auto;
 }
 
 .output {
@@ -55,12 +56,15 @@ textarea {
 	float: right;
 	margin-right: 5%;
   	width: 44%;
-  	height: 69vh;
-  	border: 2px solid white;
+  	height: 69.5vh;
+  	border: 2px solid black;
   	border-radius: 4px;
   	background-color: black;
-  	color: white;
   	font-size: 16px;
+  	color: white;
+  	overflow-y: auto;
+  	overflow-wrap: break-word;
+  	white-space: pre-wrap;
 }
 
 ul {
