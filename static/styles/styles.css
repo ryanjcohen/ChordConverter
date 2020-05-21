@@ -1,0 +1,73 @@
+body {
+	background-color: #A9A9A9;
+	font-family: Arial;
+}
+
+h1 {
+	text-align: center;
+}
+
+.instructions {
+	margin-left: 5%;
+	margin-right: 5%;
+	background-color: #808080;
+	color: white;
+	border-radius: 4px;
+}
+
+button{
+	float: left;
+	display: inline;
+	padding: 0;
+	margin: 0;
+	display: inline-block;
+	border-radius: 4px;
+	background-color: #00827f;
+	border: 1px solid black;
+	width: 6.42%;
+	height: 3.5vh;
+	font-size: 20px;
+	vertical-align: center;
+}
+
+p{
+	padding: 0.5%;
+}
+
+form {
+	display: inline;
+}
+
+textarea {
+	margin-left: 5%;
+  	width: 45%;
+  	height: 70vh;
+  	box-sizing: border-box;
+  	border: 2px solid black;
+  	border-radius: 4px;
+  	background-color: white;
+  	font-size: 16px;
+}
+
+.output {
+	display: inline;
+	position: absolute;
+	float: right;
+	margin-right: 5%;
+  	width: 44%;
+  	height: 69vh;
+  	border: 2px solid white;
+  	border-radius: 4px;
+  	background-color: black;
+  	color: white;
+  	font-size: 16px;
+}
+
+ul {
+	list-style: none;
+	padding-left: 5%;
+	margin: 0;
+	text-align: center;
+	justify-content: center;
+	width: 100%;
+}
