@@ -61,20 +61,22 @@ def process_text(half_steps, text):
 				# Check that character is the name of a chord.
 				if character in chord_letters:
 					sharp = False
-					chord = ''
+					original_chord = ''
 
 					# Check if character is the name of a sharp chord.
 					if i+1 < len(transposed_text) and transposed_text[i+1] == '#':
 						sharp = True
-						chord = chord + transposed_text[i:i+2]
+						original_chord = original_chord + transposed_text[i:i+2]
 					# Check if character is the name of a flat chord.
 					elif transposed_text[i+1] == 'b':
-						chord = chord + transposed_text[i:i+2]
+						original_chord = original_chord + transposed_text[i:i+2]
 					else:
-						chord = chord + transposed_text[i:i+1]
+						original_chord = original_chord + transposed_text[i:i+1]
 
-					# Convert sharp chord to a non-sharp chord so the arary chords can be used
+					# Convert sharp chord to a non-sharp chord so the array chords can be used
 					# for transposition.
+					chord = original_chord
+
 					if sharp:
 						chord = equality[chord]
 
@@ -88,9 +90,22 @@ def process_text(half_steps, text):
 					if sharp and transposed_chord in equality:
 						transposed_chord = equality[transposed_chord]
 
-					if i+len(chord) < len(transposed_text):
-						transposed_text = transposed_text[:i] + transposed_chord + transposed_text[i+len(chord):]
-					else:
+					original_chord_len = len(original_chord)
+					transposed_chord_len = len(transposed_chord)
+
+					if i+transposed_chord_len < len(transposed_text):
+						next_char = transposed_text[i+transposed_chord_len]
+
+						if transposed_chord_len == original_chord_len or (transposed_chord_len > original_chord_len 
+							and next_char != ' '):
+							transposed_text = transposed_text[:i] + transposed_chord + transposed_text[i+len(chord):]
+						elif transposed_chord_len < original_chord_len:
+							transposed_text = transposed_text[:i] + transposed_chord + ' ' + transposed_text[i+len(chord):]
+						elif transposed_chord_len > original_chord_len and next_char == ' ':
+							transposed_text = transposed_text[:i] + transposed_chord + transposed_text[i+1+len(chord):]
+
+					
+					elif transposed_chord_len == original_chord_len:
 						transposed_text = transposed_text[:i] + transposed_chord
 					
 					i += len(transposed_chord)
@@ -98,4 +113,5 @@ def process_text(half_steps, text):
 				else:
 					i += 1
 
+	print(transposed_text[0])
 	return transposed_text
