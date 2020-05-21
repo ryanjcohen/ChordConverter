@@ -22,7 +22,6 @@ def transpose():
 	half_steps = request.form['submit_button']
 	text = request.form['text']
 	transposed_text = process_text(half_steps,text)
-	transposed_text = transposed_text.replace('\n', '<br>')
 	return render_template("converter.html", value=text, output=transposed_text)
 
 def process_text(half_steps, text):
@@ -49,8 +48,10 @@ def process_text(half_steps, text):
 	for i in range(len(transposed_text)):
 
 		# Check if current character is the beginning of a line containing chords to be transposed.
-		if transposed_text[i]=='*' and i+1 < len(transposed_text):
-			i += 1
+		if i+1 < len(transposed_text) and transposed_text[i]=='*':
+
+			# Remove asterisk from transposed_text
+			transposed_text = transposed_text[:i] + transposed_text[i+1:]
 			character = transposed_text[i]
 
 			# Loop through line containing chords to be transposed.
@@ -98,7 +99,3 @@ def process_text(half_steps, text):
 					i += 1
 
 	return transposed_text
-
-
-if __name__ == '__main__':
-	app.run()

@@ -47,7 +47,8 @@ textarea {
   	border-radius: 4px;
   	background-color: white;
   	font-size: 16px;
-  	overflow-x: auto;
+  	font-family: monospace;
+  	white-space: nowrap;
 }
 
 .output {
@@ -63,8 +64,8 @@ textarea {
   	font-size: 16px;
   	color: white;
   	overflow-y: auto;
-  	overflow-wrap: break-word;
-  	white-space: pre-wrap;
+  	white-space: pre;
+  	font-family: monospace;
 }
 
 ul {

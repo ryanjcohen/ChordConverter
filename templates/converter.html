@@ -6,7 +6,7 @@
 <body>
   <h1>ChordConverter</h1>
   <div class="instructions">
-  	<p><b>Instructions:</b> Input text with lines of capitalized chords preceded by an asterisk (*) into the left box. Then click on the appropriate box to indicate the number of half steps to transpose your chord by.</p>
+  	<p><b>Instructions:</b> Input text with lines of capitalized chords preceded by an asterisk (*) into the left box. Then click on the appropriate button to indicate the number of half steps to transpose your chords by.</p>
   </div>
   <form action="{{url_for('transpose')}}" method="post">
   	<ul>
@@ -27,7 +27,7 @@
   	</ul>
   	<textarea name="text">{{value}}</textarea>
   </form>
-  <div class="output"> {% autoescape false %} {{output}} {% endautoescape %}
+  <div class="output"> {{output}}
   </div>
 
 </body>
