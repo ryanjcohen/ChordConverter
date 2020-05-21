@@ -68,7 +68,7 @@ def process_text(half_steps, text):
 						sharp = True
 						original_chord = original_chord + transposed_text[i:i+2]
 					# Check if character is the name of a flat chord.
-					elif transposed_text[i+1] == 'b':
+					elif i+1 < len(transposed_text) and transposed_text[i+1] == 'b':
 						original_chord = original_chord + transposed_text[i:i+2]
 					else:
 						original_chord = original_chord + transposed_text[i:i+1]
@@ -105,7 +105,7 @@ def process_text(half_steps, text):
 							transposed_text = transposed_text[:i] + transposed_chord + transposed_text[i+1+len(chord):]
 
 					
-					elif transposed_chord_len == original_chord_len:
+					else:
 						transposed_text = transposed_text[:i] + transposed_chord
 					
 					i += len(transposed_chord)
@@ -113,5 +113,4 @@ def process_text(half_steps, text):
 				else:
 					i += 1
 
-	print(transposed_text[0])
 	return transposed_text
