@@ -1,7 +1,7 @@
 # ChordConverter
 Web app for transposing chords of a song to another key built with Flask.
 
-Try it at: http://chordconverter.pythonanywhere.com/
+Try it at: https://chordconverter.pythonanywhere.com/
 
 # Local installation instructions
 (Must have Flask installed)
